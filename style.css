@@ -8,12 +8,15 @@
   body {
     font-family: sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #d1d1d1;
+    color: #2D5FAA;
+    max-width: 1200px;  /* Adjust to your desired width */
+    margin: 0 auto;    /* Centers the content */
+    padding: 20px;     /* Add padding around the content */
   }
   
   header {
-    background-color: #333;
+    background-color: #2D5FAA;
     color: #fff;
     padding: 10px 0;
     position: sticky; /* Stay at the top on scroll*/
@@ -40,7 +43,7 @@
   }
   
   nav a:hover {
-    color: #f0db4f; /* Example hover color */
+    color: #B7293F; /* Example hover color */
   }
   
   main {
@@ -58,6 +61,6 @@
   footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background-color: #2D5FAA;
     color: #fff;
   }
