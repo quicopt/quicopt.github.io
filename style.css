@@ -109,22 +109,29 @@ section {
 /* Style the caption container */
 .profile-caption {
   display: flex;
-  justify-content: center; /* Center the logos horizontally */
-  align-items: center;    /* Center the logos vertically */
-  margin-top: 5px;        /* Add a little space between the image and the logos */
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }
 
 /* Style the logo links */
 .profile-caption a {
-  margin: 0 5px;         /* Add spacing between the logos */
-  display: block;         /* Allows setting width/height on the links if needed */
+  margin: 0 5px;
+  display: inline-flex; /* Use inline-flex for better control */
+  align-items: center;   /* Vertically center within the link */
+  justify-content: center; /* Horizontally center within the link */
+  width: 30px;       /* Set a fixed width for all links */
+  height: 30px;      /* Set a fixed height for all links (adjust to your liking) */
 }
 
 /* Style the logos */
 .profile-caption img {
-  width: 24px;          /* Adjust the logo size as desired */
-  height: auto;
-  display: block;         /* Removes default inline spacing below the image */
+  max-width: 100%;     /* Make the image fill the link's width */
+  max-height: 100%;    /* Make the image fill the link's height */
+  width: auto;       /* Let the image scale proportionally */
+  height: auto;       /* Let the image scale proportionally */
+  object-fit: contain; /* Ensure the image fits within the box without cropping */
+  display: block;      /* Removes default inline spacing */
 }
 
 footer {
