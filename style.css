@@ -5,62 +5,92 @@
     box-sizing: border-box; /* Makes padding and border included in the element's total width and height */
   }
   
-  body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    background-color: #d1d1d1;
-    color: #2D5FAA;
-    max-width: 1200px;  /* Adjust to your desired width */
-    margin: 0 auto;    /* Centers the content */
-    padding: 20px;     /* Add padding around the content */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #2D5FAA;
+  max-width: 1200px;  /* Adjust to your desired width */
+  margin: 0 auto;    /* Centers the content */
+  padding: 20px;     /* Add padding around the content */
+}
+
+header {
+  background-color: #2D5FAA;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Stay at the top on scroll*/
+  top: 0;
+  z-index: 100; /* Ensure header stays on top of other content */
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* Arrange items horizontally */
+  justify-content: center; /* Center items horizontally */
+  align-items: center;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+nav a:hover {
+  color: #B7293F; /* Example hover color */
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#home .home-content {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* 200px for image, remaining for text */
+  gap: 20px; /* Space between the image and text */
+  align-items: center; /* Vertically align items in the grid */
+}
+
+#home .profile-picture img {
+  width: 100%; /* Make the image fill its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make the image circular (optional) */
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+/* #home .home-text {} */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2D5FAA;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  #home .home-content {
+    grid-template-columns: 1fr; /* Stack image and text vertically */
   }
-  
-  header {
-    background-color: #2D5FAA;
-    color: #fff;
-    padding: 10px 0;
-    position: sticky; /* Stay at the top on scroll*/
-    top: 0;
-    z-index: 100; /* Ensure header stays on top of other content */
+
+  #home .profile-picture img {
+    max-width: 150px; /* Limit the image size on small screens */
+    margin: 0 auto;    /* Center the image horizontally */
+    display: block;    /* Ensure margin auto works */
   }
-  
-  nav ul {
-    list-style: none;
-    display: flex; /* Arrange items horizontally */
-    justify-content: center; /* Center items horizontally */
-    align-items: center;
-  }
-  
-  nav li {
-    margin: 0 20px;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease; /* Smooth color change on hover */
-  }
-  
-  nav a:hover {
-    color: #B7293F; /* Example hover color */
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  section {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #2D5FAA;
-    color: #fff;
-  }
+}
