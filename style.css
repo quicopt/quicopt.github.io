@@ -1,0 +1,63 @@
+/* Basic Reset (optional but recommended) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes padding and border included in the element's total width and height */
+  }
+  
+  body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky; /* Stay at the top on scroll*/
+    top: 0;
+    z-index: 100; /* Ensure header stays on top of other content */
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex; /* Arrange items horizontally */
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+  }
+  
+  nav li {
+    margin: 0 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color change on hover */
+  }
+  
+  nav a:hover {
+    color: #f0db4f; /* Example hover color */
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+  }
