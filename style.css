@@ -26,7 +26,7 @@ body {
   font-family: sans-serif;
   line-height: 1.6;
   background-color: #ffffff;
-  color: #2D5FAA;
+  color: #222222;
   max-width: 1500px;  /* Adjust to your desired width */
   margin: 0 auto;    /* Centers the content */
   padding: 20px;     /* Add padding around the content */
@@ -93,12 +93,6 @@ section {
 
 /* #home .home-text {} */
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #ffffff;
-  color: #2D5FAA;
-}
 
 @media (max-width: 768px) {
   #home .home-content {
@@ -110,4 +104,32 @@ footer {
     margin: 0 auto;    /* Center the image horizontally */
     display: block;    /* Ensure margin auto works */
   }
+}
+
+/* Style the caption container */
+.profile-caption {
+  display: flex;
+  justify-content: center; /* Center the logos horizontally */
+  align-items: center;    /* Center the logos vertically */
+  margin-top: 5px;        /* Add a little space between the image and the logos */
+}
+
+/* Style the logo links */
+.profile-caption a {
+  margin: 0 5px;         /* Add spacing between the logos */
+  display: block;         /* Allows setting width/height on the links if needed */
+}
+
+/* Style the logos */
+.profile-caption img {
+  width: 24px;          /* Adjust the logo size as desired */
+  height: auto;
+  display: block;         /* Removes default inline spacing below the image */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #2D5FAA;
 }
