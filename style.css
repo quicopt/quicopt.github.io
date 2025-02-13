@@ -35,7 +35,7 @@ body {
 header {
   background-color: #2D5FAA;
   color: #fff;
-  padding: 10px 0;
+  padding: 20px 0;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky; /* Stay at the top on scroll*/
@@ -79,7 +79,7 @@ section {
 
 #home .home-content {
   display: grid;
-  grid-template-columns: 200px 1fr; /* 200px for image, remaining for text */
+  grid-template-columns: 256px 1fr; /* 200px for image, remaining for text */
   gap: 20px; /* Space between the image and text */
   align-items: center; /* Vertically align items in the grid */
 }
