@@ -76,6 +76,31 @@ header {
   transition: transform 0.3s ease;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+.quicopt-brand {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 32px;
+  margin-left: 24px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  z-index: 101;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 nav .nav-links {
   list-style: none;
   display: flex;
@@ -150,21 +175,58 @@ h4 {
 }
 
 #home {
+  margin-bottom: 40px !important;
+  padding: 0 !important;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  scroll-margin-top: 50px;
   border-left: 0px solid var(--primary-blue);
 }
 
 #home .home-content {
   display: grid;
-  grid-template-columns: 256px 1fr; /* 256px for image, remaining for text */
-  gap: 100px; /* Space between the image and text */
-  align-items: center; /* Vertically align items in the grid */
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: stretch;
+  height: 320px;
+  min-height: 350px;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-#home .profile-picture img {
-  width: 100%; /* Make the image fill its container */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 50%; /* Make the image circular (optional) */
-  object-fit: cover; /* Ensure the image covers the container */
+.processor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+  grid-row: 1 / span 2;
+  grid-column: 1 / 2;
+  align-self: stretch;
+  justify-self: stretch;
+  box-sizing: border-box;
+}
+
+.home-text {
+  padding-left: 100px;
+  padding-right: 160px;
+  padding-top: 80px;
+  padding-bottom: 0;
+}
+
+.home-text strong {
+  color: var(--primary-blue);
+}
+
+/* Remove old profile-picture and profile-caption rules if present */
+.profile-picture,
+.profile-caption {
+  display: none !important;
 }
 
 /* Style publication bullet points */
@@ -232,6 +294,17 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .processor-image {
+    display: none !important;
+  }
+  #home .home-content {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+  .home-text {
+    padding: 24px 8px 8px 8px;
+  }
 
   body {
     padding: 2px;
@@ -245,10 +318,6 @@ footer {
     margin-bottom: 30px;
     padding: 16px;
   }  
-
-  #home .home-content {
-    grid-template-columns: 1fr; /* Stack image and text vertically */
-  }
 
   #home .profile-picture img {
     max-width: 160px; /* Limit the image size on small screens */
@@ -288,6 +357,12 @@ footer {
   
   .mobile-menu-button.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .quicopt-brand {
+    font-size: 1.2rem;
+    margin-right: 16px;
+    margin-left: 8px;
   }
 }
 
