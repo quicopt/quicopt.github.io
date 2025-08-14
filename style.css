@@ -2,6 +2,7 @@
 :root {
   --primary-blue: #2D5FAA;
   --accent-green: #2daa5f;
+  --accent-red: #B7293F;
 }
 
 /* Basic Reset (optional but recommended) */
@@ -28,6 +29,14 @@
     color: #fff; /* Set the color when the link is actively being clicked (example: red) */
   }  
   
+  a.youtube-link {
+    color: #FF0000;
+  }
+
+  a.youtube-link:hover {
+    color: var(--accent-red);
+  }
+
 body {
   /* font-family: 'Lora', Georgia, serif; */
   /* font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; */
