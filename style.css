@@ -351,6 +351,14 @@ footer {
     position: static; /* Reset absolute positioning */
     transform: none;
   }
+  
+  /* Make YouTube video responsive on mobile */
+  iframe {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
 }
 
 .highlighted-publications li strong {
