@@ -1,28 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Set up mobile menu functionality first
-  const mobileMenuButton = document.querySelector('.mobile-menu-button');
-  const navLinks = document.querySelectorAll('nav a');
-  const navMenu = document.querySelector('.nav-links');
-
-  // Toggle mobile menu
-  if (mobileMenuButton) {
-    mobileMenuButton.addEventListener('click', function() {
-      mobileMenuButton.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-  }
-
-  // Close mobile menu when clicking a link
-  const closeMenu = () => {
-    if (mobileMenuButton) {
-      mobileMenuButton.classList.remove('active');
-    }
-    if (navMenu) {
-      navMenu.classList.remove('active');
-    }
-  };
-
   // Set up navigation link handlers
+  const navLinks = document.querySelectorAll('nav a');
+
   navLinks.forEach(link => {
     link.addEventListener('click', function(event) {
       const href = this.getAttribute('href');
@@ -30,14 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (!isHashLink) {
         // Allow normal navigation for non-hash links (e.g., language switch, external links)
-        closeMenu();
         return;
       }
 
       event.preventDefault();
       const targetElement = document.querySelector(href);
       if (targetElement) {
-        closeMenu();
         targetElement.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
@@ -69,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Mark manual language switches to prevent auto-redirect on the next page
-  const languageLinks = document.querySelectorAll('a[href="de.html"], a[href="index.html"]');
+  const languageLinks = document.querySelectorAll('.language-link');
   languageLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       // Mark this as a manual switch to prevent auto-redirect on the next page

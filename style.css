@@ -64,26 +64,7 @@ header {
   z-index: 100; /* Ensure header stays on top of other content */
 }
 
-.mobile-menu-button {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.mobile-menu-button .bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px 5px;
-  background-color: #fff;
-  transition: transform 0.3s ease;
-}
+/* Remove mobile menu button styles */
 
 nav {
   display: flex;
@@ -111,16 +92,11 @@ nav {
 }
 
 nav .nav-links {
-  list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-}
-
-nav li {
-  margin: 0 20px;
-  margin-bottom: 1px;
+  gap: 20px;
 }
 
 nav a {
@@ -135,8 +111,7 @@ nav a:hover {
 }
 
 /* Make language links more prominent and always visible */
-nav a[href="de.html"], 
-nav a[href="index.html"] {
+.language-link {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 4px 8px;
   border-radius: 4px;
@@ -145,8 +120,7 @@ nav a[href="index.html"] {
   transition: all 0.3s ease;
 }
 
-nav a[href="de.html"]:hover, 
-nav a[href="index.html"]:hover {
+.language-link:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: var(--accent-green);
   color: var(--accent-green);
@@ -352,44 +326,30 @@ footer {
     display: block;    /* Ensure margin auto works */
   }
 
-  .mobile-menu-button {
-    display: block;
+  /* Mobile navigation: show only brand and language link */
+  nav {
+    justify-content: space-between;
+    align-items: center;
   }
   
   nav .nav-links {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    padding: 20px 0;
-    margin-top: 10px;
-  }
-  
-  nav .nav-links.active {
     display: flex;
+    gap: 0;
+    margin-left: auto; /* Push to the right */
+    padding-right: 16px; /* Add padding from the right edge */
   }
   
-  nav li {
-    margin: 0 10px;
-    margin-bottom: 1px; /* Your original spacing */
+  /* Hide all nav links except language link on mobile */
+  nav .nav-links a:not(.language-link) {
+    display: none;
   }
   
-  /* Fixed close button animation */
-  .mobile-menu-button.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  
-  .mobile-menu-button.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .mobile-menu-button.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
   .quicopt-brand {
     font-size: 1.2rem;
     margin-right: 16px;
     margin-left: 8px;
+    position: static; /* Reset absolute positioning */
+    transform: none;
   }
 }
 
