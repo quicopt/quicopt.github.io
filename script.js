@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const isGermanPage = currentPath.endsWith('/de.html');
   
   // Check if this is a manual language switch (user clicked a language link)
-  const isManualSwitch = sessionStorage.getItem('quicopt-manual-switch');
+  const isManualSwitch = sessionStorage.getItem('quicopt-manual-switch') === 'true';
   if (isManualSwitch) {
+    // Clear the flag but DO NOT return; we still need to attach event listeners
     sessionStorage.removeItem('quicopt-manual-switch');
-    return; // Don't auto-redirect after manual switch
   }
   
   // Automatic language detection: if on English page and browser language is German, redirect
-  if (isEnglishPage) {
+  if (!isManualSwitch && isEnglishPage) {
     const browserLang = navigator.language || navigator.userLanguage;
     if (browserLang.startsWith('de')) {
       // Redirect to German page
@@ -52,5 +52,25 @@ document.addEventListener('DOMContentLoaded', function() {
       // Mark this as a manual switch to prevent auto-redirect on the next page
       sessionStorage.setItem('quicopt-manual-switch', 'true');
     });
+  });
+
+  // Swap benchmark image src on hover to avoid overlay misalignment
+  const benchmarkImages = document.querySelectorAll('img.benchmark-swap');
+  benchmarkImages.forEach(img => {
+    const originalSrc = img.getAttribute('src');
+    const hoverSrc = img.getAttribute('data-hover');
+    if (!hoverSrc) return;
+
+    img.addEventListener('mouseenter', () => {
+      img.setAttribute('src', hoverSrc);
+    });
+    img.addEventListener('mouseleave', () => {
+      img.setAttribute('src', originalSrc);
+    });
+    // Touch devices: tap toggles between images
+    img.addEventListener('touchstart', () => {
+      const current = img.getAttribute('src');
+      img.setAttribute('src', current === originalSrc ? hoverSrc : originalSrc);
+    }, { passive: true });
   });
 });

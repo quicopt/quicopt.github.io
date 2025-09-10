@@ -287,6 +287,34 @@ footer {
   color: var(--primary-blue);
 }
 
+/* Hover-swap image utility */
+.hover-swap {
+  position: relative;
+  display: block;
+  max-width: 100%;
+}
+
+.hover-swap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.hover-swap .hover-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.hover-swap:hover .hover-image {
+  opacity: 1;
+}
+
 /* Remove green accent from #contact h2 */
 #contact h2 {
   color: var(--primary-blue);
