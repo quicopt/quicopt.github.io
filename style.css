@@ -327,6 +327,14 @@ footer {
   width: 100%;
 }
 
+#benchmark .benchmark-image img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 #benchmark .benchmark-text h3 {
   margin-top: 0;
 }
@@ -338,6 +346,12 @@ footer {
 @media (max-width: 768px) {
   #benchmark .benchmark-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  #benchmark .benchmark-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }
 
