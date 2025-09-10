@@ -41,14 +41,25 @@
     </section>
 
     <section id="benchmark">
-      <h2>Benchmarks</h2>
-      <!-- <p class="application-note">Mit der Maus über die Grafik fahren, um Details zu sehen.</p> -->
-      <img
-        class="benchmark-swap"
-        src="images/quicopt_gurobi_de.png"
-        data-hover="images/quicopt_gurobi_hover_de.png"
-        alt="Benchmark-Vergleich"
-      >
+      <div class="benchmark-grid">
+        <div class="benchmark-image">
+          <!-- <p class="application-note">Mit der Maus über die Grafik fahren, um Details zu sehen.</p> -->
+          <img
+            class="benchmark-swap"
+            src="images/quicopt_gurobi_de.png"
+            data-hover="images/quicopt_gurobi_hover_de.png"
+            alt="Benchmark-Vergleich"
+          >
+        </div>
+        <div class="benchmark-text">
+          <h2>Benchmarks</h2>
+          <p>
+            Benchmark-Ergebnisse für die <a href="https://de.wikipedia.org/wiki/Stabile_Menge#Maximale_stabile_Menge">"Maximum Independent Set"</a>-Probleminstanzen <code>R_500_005_1</code> und <code>R_1000_005_1</code> aus der <a href="https://git.zib.de/qopt/qoblib-quantum-optimization-benchmarking-library">Quantum Optimization Benchmarking Library (QOBLIB)</a>. 
+            Die Laufzeiten für Quicopt und Gurobi sind in beiden Fällen vergleichbar, obwohl Quicopt auf einem Laptop mit weniger Kernen ausgeführt wurde (siehe die Notebooks <a href="https://github.com/FZJ-PGI-12/QuicoptBenchmarks/blob/main/notebooks/max_independent_set/R_500_005_1.ipynb">hier</a> und <a href="https://github.com/FZJ-PGI-12/QuicoptBenchmarks/blob/main/notebooks/max_independent_set/R_1000_005_1.ipynb">hier</a>). 
+            Technische Details zu den Gurobi-Ergebnissen gibt es hier: <a href="https://doi.org/10.48550/arXiv.2504.03832">arXiv:2504.03832</a>.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="highlighted-publications">

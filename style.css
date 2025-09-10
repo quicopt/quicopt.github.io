@@ -315,6 +315,32 @@ footer {
   opacity: 1;
 }
 
+/* Benchmark section layout */
+#benchmark .benchmark-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+#benchmark .benchmark-image {
+  width: 100%;
+}
+
+#benchmark .benchmark-text h3 {
+  margin-top: 0;
+}
+
+#benchmark .benchmark-text p {
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  #benchmark .benchmark-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Remove green accent from #contact h2 */
 #contact h2 {
   color: var(--primary-blue);
