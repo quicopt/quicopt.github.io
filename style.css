@@ -40,7 +40,8 @@
 body {
   /* font-family: 'Lora', Georgia, serif; */
   /* font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; */
-  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+  /* font-family: 'Trebuchet MS', Helvetica, sans-serif; */
+  font-family: 'Fira Sans', sans-serif;
   line-height: 1.8;
   background-color: #ffffff;
   color: #222222;
@@ -139,7 +140,8 @@ section {
 h1, h2, h3, h4 {
   /* font-family: 'Merriweather', Georgia, serif; */
   /* font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; */
-  font-family: 'Trebuchet MS', Helvetica, sans-serif;
+  /* font-family: 'Trebuchet MS', Helvetica, sans-serif; */
+  font-family: 'Fira Sans', sans-serif;
 }
 
 h2 {
