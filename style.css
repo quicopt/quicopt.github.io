@@ -174,7 +174,7 @@ h4 {
 }
 
 #contact {
-  text-align: center;
+  text-align: left;
 }
 
 #home {
@@ -226,10 +226,31 @@ h4 {
   color: var(--primary-blue);
 }
 
-/* Remove old profile-picture and profile-caption rules if present */
-.profile-picture,
-.profile-caption {
-  display: none !important;
+/* Contact section layout */
+#contact .contact-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+#contact .contact-avatar {
+  /* width: 160px;
+  height: 160px; */
+  max-width: 200px; /* Limit the image size on small screens */
+  margin: 0 auto;    /* Center the image horizontally */
+  display: block;    /* Ensure margin auto works */  
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0px solid var(--primary-blue);
+}
+
+#contact .contact-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 /* Style publication bullet points */
@@ -253,10 +274,11 @@ li:not(nav li)::before {
 }
 
 /* Style the caption container */
-.profile-caption {
-  display: flex;
-  justify-content: center;
+#contact .profile-caption {
+  display: flex !important;
+  justify-content: flex-start;
   align-items: center;
+  gap: 8px;
   margin-top: 10px;
 }
 
@@ -355,15 +377,6 @@ footer {
   }
 }
 
-/* Remove green accent from #contact h2 */
-#contact h2 {
-  color: var(--primary-blue);
-  border-left: none;
-  padding-left: 0;
-  margin-bottom: 18px;
-  border-radius: 0;
-}
-
 @media (max-width: 768px) {
   .processor-image {
     display: none !important;
@@ -428,6 +441,16 @@ footer {
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
+  }
+
+  /* Stack contact grid on mobile */
+  #contact .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  #contact .contact-avatar {
+    width: 120px;
+    height: 120px;
   }
 }
 
