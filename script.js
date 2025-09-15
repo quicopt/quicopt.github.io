@@ -73,4 +73,60 @@ document.addEventListener('DOMContentLoaded', function() {
       img.setAttribute('src', current === originalSrc ? hoverSrc : originalSrc);
     }, { passive: true });
   });
+
+  // Inline submit for Formspree forms (both languages)
+  const contactForms = document.querySelectorAll('#contact form[action^="https://formspree.io/"]');
+  contactForms.forEach(form => {
+    const statusEl = document.createElement('div');
+    statusEl.className = 'form-status';
+    form.appendChild(statusEl);
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = '';
+      statusEl.classList.remove('success', 'error');
+
+      const isGerman = !!form.closest('html[lang="de"]');
+      const formData = new FormData(form);
+
+      // reCAPTCHA v3: execute and attach token
+      const siteKey = form.getAttribute('data-recaptcha-sitekey');
+      if (!window.grecaptcha || !siteKey) {
+        statusEl.textContent = isGerman ? 'reCAPTCHA nicht geladen.' : 'reCAPTCHA not loaded.';
+        statusEl.classList.add('error');
+        return;
+      }
+      try {
+        await new Promise(resolve => window.grecaptcha.ready(resolve));
+        const token = await window.grecaptcha.execute(siteKey, { action: 'submit' });
+        formData.set('g-recaptcha-response', token);
+      } catch (err) {
+        statusEl.textContent = isGerman ? 'Fehler bei reCAPTCHA.' : 'reCAPTCHA error.';
+        statusEl.classList.add('error');
+        return;
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.reset();
+          statusEl.textContent = isGerman ? 'Danke! Ihre Nachricht wurde gesendet.' : 'Thank you! Your message has been sent.';
+          statusEl.classList.add('success');
+        } else {
+          const data = await response.json().catch(() => ({}));
+          const msg = (data && data.errors && data.errors[0] && data.errors[0].message) || response.statusText || 'Submission failed.';
+          statusEl.textContent = isGerman ? `Fehler: ${msg}` : `Error: ${msg}`;
+          statusEl.classList.add('error');
+        }
+      } catch (err) {
+        statusEl.textContent = isGerman ? 'Netzwerkfehler. Bitte später erneut versuchen.' : 'Network error. Please try again later.';
+        statusEl.classList.add('error');
+      }
+    });
+  });
 });

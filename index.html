@@ -12,6 +12,7 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet"> -->
   <link rel="alternate" hreflang="de" href="de.html">
   <link rel="alternate" hreflang="en" href="index.html">
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfQdsorAAAAAPN38y4phskg6zx-UzddFOw_eILb" async defer></script>
 </head>
 <body>
 
@@ -133,6 +134,23 @@
         <div class="contact-card">
           <h2>Contact</h2>
           <p>Feel free to reach out for research collaborations or inquiries.</p>
+          <form action="https://formspree.io/f/xandzjgo" method="POST" data-recaptcha-sitekey="6LfQdsorAAAAAPN38y4phskg6zx-UzddFOw_eILb">
+            <label>Name
+              <input type="text" name="name" required>
+            </label>
+            <label>Company
+              <input type="text" name="company">
+            </label>    
+            <label>Email
+              <input type="email" name="email" required>
+            </label>
+            <label>Message
+              <textarea name="message" required></textarea>
+            </label>
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="g-recaptcha-response" value="">
+            <button type="submit">Send</button>
+          </form>
         </div>
       </div>
     </section>
