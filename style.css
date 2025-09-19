@@ -247,7 +247,7 @@ h4 {
   max-width: 200px; /* Limit the image size on small screens */
   margin: 0 auto;    /* Center the image horizontally */
   display: block;    /* Ensure margin auto works */  
-  border-radius: 50%;
+  border-radius: 5%;
   object-fit: cover;
   border: 0px solid var(--primary-blue);
 }
@@ -528,7 +528,7 @@ footer {
   }
   #contact .contact-avatar {
     width: 120px;
-    height: 120px;
+    /* height: 120px; */
   }
 }
 
